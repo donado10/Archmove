@@ -1,0 +1,81 @@
+@mixin flexcentered() {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin link-style() {
+  font-family: "SF UI Display", sans-serif;
+  font-weight: map-get($map: $font-weight, $key: regular);
+  font-size: map-get($map: $font-size, $key: regular);
+  color: map-get($map: $color, $key: third);
+}
+
+@mixin default-style() {
+  font-family: "SF UI Display", sans-serif;
+  font-weight: map-get($map: $font-weight, $key: regular);
+  font-size: map-get($map: $font-size, $key: large);
+  color: map-get($map: $color, $key: secondary);
+}
+
+@mixin set-font($size, $weight) {
+  font-size: $size;
+  font-weight: $weight;
+}
+
+@mixin section-width() {
+  /* border: 1px solid red; */
+  width: 85vw;
+  align-self: center;
+}
+
+@function max($number1, $number2) {
+  @return if($number1 > $number2, $number1, $number2);
+}
+
+@mixin response($breakpoint) {
+  @if ($breakpoint == xxl) {
+    @media (max-width: 1200px) {
+      @content;
+    }
+  }
+
+  @if ($breakpoint == xl) {
+    @media (max-width: 1024px) {
+      @content;
+    }
+  }
+
+  @if ($breakpoint == lg) {
+    @media (max-width: 768px) {
+      @content;
+    }
+  }
+
+  @if ($breakpoint == md) {
+    @media (max-width: 480px) {
+      @content;
+    }
+  }
+
+  @if ($breakpoint == sm) {
+    @media (max-width: 320px) {
+      @content;
+    }
+  }
+}
+
+/* 
+xs: 320px,
+  sm: 480px,
+  md: 768px,
+  lg: 1024px,
+  xl: 1200px,
+  xxl: 1440px,
+*/
+
+/* @include set-font(
+  map-get($map: $font-size, $key: large),
+  map-get($map: $font-weight, $key: bold)
+);
+ */

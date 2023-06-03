@@ -1,0 +1,40 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font: inherit;
+}
+
+html {
+  font-size: 100%;
+}
+
+body {
+  @include flexcentered;
+  flex-direction: column;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+.close-menu,
+a,
+.hamburger-menu,
+.logo,
+.chevron-left,
+.chevron-right {
+  cursor: pointer;
+}
+
+.hamburger-menu {
+  display: none;
+}
+
+.close-menu {
+  display: none;
+}

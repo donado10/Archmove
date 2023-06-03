@@ -1,0 +1,86 @@
+.testimonial-section {
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  grid-template-rows: repeat(3, auto);
+  gap: 3rem;
+
+  @include section-width();
+
+  .testimonial-title {
+    grid-column: 1/-1;
+  }
+  .testimonials {
+    grid-column: 2/-1;
+    grid-row: 2/3;
+    .testimonial-text {
+      font-family: "SF UI Display", sans-serif;
+      @include set-font(
+        map-get($map: $font-size, $key: big),
+        map-get($map: $font-weight, $key: semi-regular)
+      );
+
+      margin-bottom: 1.5rem;
+    }
+    .testimonial-author {
+      h1 {
+        font-family: "SF UI Display", sans-serif;
+        @include set-font(
+          map-get($map: $font-size, $key: large),
+          map-get($map: $font-weight, $key: semi-regular)
+        );
+
+        span {
+          font-weight: map-get($map: $font-weight, $key: bold);
+        }
+      }
+    }
+  }
+
+  .testimonial-quote {
+    grid-column: 1/2;
+    grid-row: 2/3;
+    justify-self: end;
+  }
+
+  @include response(xxl) {
+    .testimonials {
+      $big: 1.38rem;
+      .testimonial-text {
+        font-size: $big;
+      }
+    }
+
+    .testimonial-quote > svg {
+      width: 3rem;
+      height: 2.5rem;
+    }
+  }
+
+  @include response(lg) {
+    .testimonials {
+      $big: 1.2rem;
+      .testimonial-text {
+        font-size: $big;
+      }
+    }
+
+    .testimonial-quote > svg {
+      width: 2rem;
+      height: 1.5rem;
+    }
+  }
+
+  @include response(md) {
+    .testimonials {
+      $big: 0.9rem;
+      .testimonial-text {
+        font-size: $big;
+      }
+    }
+
+    .testimonial-quote > svg {
+      width: 1rem;
+      height: 1.5rem;
+    }
+  }
+}

@@ -1,0 +1,102 @@
+.hero-section {
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  grid-template-rows: repeat(5, auto);
+  row-gap: 3rem;
+
+  @include section-width();
+  width: 70vw;
+
+  .hero-title {
+    grid-column: 1/-1;
+    grid-row: 1/2;
+    font-family: "New York Extra Large";
+    font-weight: map-get($map: $font-weight, $key: bold);
+    font-size: map-get($map: $font-size, $key: giant);
+    span {
+      color: map-get($map: $color, $key: primary);
+    }
+  }
+  .hero-description {
+    grid-column: 1/2;
+    grid-row: 2/3;
+    @include default-style;
+    line-height: 1.5rem;
+    margin-right: 4rem;
+  }
+
+  .primary-btn {
+    grid-row: 3/4;
+    grid-column: 1/2;
+  }
+
+  .hero-img {
+    grid-row: 2/-1;
+    $number1: 5rem;
+    $number2: 100%;
+    width: max($number1, $number2);
+    img {
+      width: 100%;
+      aspect-ratio: 1.5/1;
+    }
+  }
+
+  @include response(xxl) {
+    $giant: 6.25rem;
+    .hero-title {
+      font-size: $giant;
+    }
+  }
+
+  @include response(xl) {
+    grid-template-columns: auto;
+    grid-template-rows: repeat(4, auto);
+    row-gap: 2rem;
+
+    $giant: 4.25rem;
+    .hero-title {
+      font-size: $giant;
+      justify-self: center;
+    }
+    .hero-img {
+      grid-row: 2/3;
+    }
+
+    .hero-description {
+      grid-row: 3/4;
+      text-align: center;
+
+      br {
+        content: "";
+        display: none;
+      }
+
+      br:after {
+        content: ""; // note we've added space here.
+        display: none;
+      }
+      margin: 0;
+    }
+
+    .primary-btn {
+      grid-row: 4/5;
+      justify-self: center;
+    }
+  }
+
+  @include response(lg) {
+    $giant: 3rem;
+    .hero-title {
+      font-size: $giant;
+      justify-self: center;
+    }
+  }
+  @include response(md) {
+    width: 80%;
+    $giant: 2rem;
+    .hero-title {
+      font-size: $giant;
+      justify-self: center;
+    }
+  }
+}

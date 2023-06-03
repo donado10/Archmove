@@ -1,0 +1,110 @@
+.header {
+  display: grid;
+  grid-template-columns: 7rem repeat(auto-fit, minmax(8.6rem, 1fr)) minmax(
+      13rem,
+      1fr
+    );
+
+  @include section-width();
+  .logo {
+    grid-column: 1/2;
+    align-self: center;
+  }
+
+  nav {
+    grid-column: 2/6;
+    @include flexcentered;
+    justify-self: start;
+  }
+
+  .primary-nav {
+    display: flex;
+    gap: 3rem;
+  }
+
+  .primary-link > * {
+    @include link-style;
+  }
+
+  &-btn {
+    grid-column: -1/-2;
+    @include flexcentered;
+    justify-self: end;
+    gap: 1rem;
+  }
+
+  @include response(xl) {
+    grid-template-columns: 7rem repeat(4, 1fr) auto;
+    nav {
+      position: fixed;
+      justify-self: center;
+      left: 100%;
+      transition: transform 0.5s ease-in;
+      top: 0;
+      z-index: 2;
+    }
+
+    .show-nav {
+      transform: translateX(-100%);
+    }
+
+    .primary-nav {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: start;
+      width: 100vw;
+      height: 100vh;
+      background: map-get($map: $color, $key: primary);
+      opacity: 0.9;
+      gap: 0;
+      position: relative;
+    }
+
+    .primary-link {
+      border-bottom: 1px solid rgba(0, 0, 0, 0.141);
+      width: 100%;
+      @include flexcentered;
+      padding: 2.5rem;
+    }
+
+    .primary-link > * {
+      color: white;
+      font-size: 1.5rem;
+    }
+
+    &-btn {
+      grid-column: 4/6;
+      margin-right: 3rem;
+    }
+
+    .hamburger-menu {
+      grid-column: -1/-2;
+      display: block;
+      width: 3rem;
+      height: 3rem;
+      color: map-get($map: $color, $key: primary);
+      justify-self: end;
+    }
+
+    .hamburger-menu.sticky {
+      position: fixed;
+      top: 3rem;
+      right: 5%;
+      z-index: 3;
+    }
+
+    .close-menu {
+      display: block;
+      width: 3rem;
+      height: 3rem;
+      margin-top: 3rem;
+    }
+  }
+
+  @include response(md) {
+    &-btn {
+      display: none;
+    }
+  }
+}

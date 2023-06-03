@@ -1,0 +1,193 @@
+.service-section {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(6, auto);
+
+  @include section-width();
+
+  gap: 1.5rem;
+
+  .service-chevrons {
+    display: none;
+  }
+  .service-title {
+    grid-column: 1/-1;
+  }
+
+  .service-img {
+    grid-row: 2/-1;
+    width: max(16rem, 85%);
+    img {
+      width: 100%;
+      aspect-ratio: 1/1.1;
+    }
+  }
+
+  .service-features {
+    grid-row: 2/4;
+    grid-column: 2/3;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .feature {
+    display: flex;
+    gap: 2rem;
+    width: 23rem;
+
+    &-description {
+      h1 {
+        font-family: "SF UI Display", sans-serif;
+        @include set-font(
+          map-get($map: $font-size, $key: large),
+          map-get($map: $font-weight, $key: bold)
+        );
+
+        margin-bottom: 1rem;
+      }
+
+      h2 {
+        font-family: "SF UI Display", sans-serif;
+        @include set-font(
+          map-get($map: $font-size, $key: large),
+          map-get($map: $font-weight, $key: semi-regular)
+        );
+      }
+    }
+  }
+  .primary-btn {
+    grid-row: 4/7;
+    grid-column: 2/3;
+    justify-self: center;
+  }
+
+  @include response(xl) {
+    .feature-logo {
+      width: 40px;
+      height: 48px;
+
+      svg {
+        width: 100%;
+      }
+    }
+
+    .feature-description {
+      h1 {
+        font-size: map-get($map: $font-size, $key: regular);
+        margin-bottom: 0.5rem;
+      }
+      h2 {
+        font-size: map-get($map: $font-size, $key: regular);
+      }
+    }
+  }
+
+  @include response(lg) {
+    grid-template-columns: auto;
+    grid-template-rows: repeat(4, auto);
+    .service-title {
+      grid-column: 1/-1;
+      grid-row: 1;
+      @include flexcentered;
+    }
+    .service-img {
+      grid-column: 1/-1;
+      grid-row: 2;
+      align-self: center;
+      justify-self: center;
+      width: 22rem;
+    }
+    .service-features {
+      grid-column: 1/2;
+      grid-row: 3;
+      width: 28rem;
+      height: 6rem;
+      align-self: center;
+      justify-self: center;
+      position: relative;
+    }
+    .primary-btn {
+      grid-column: 1/-1;
+      grid-row: 4;
+    }
+
+    .feature {
+      position: absolute;
+    }
+
+    .feature.active {
+      display: flex;
+    }
+
+    .feature.next,
+    .feature.hidden {
+      display: none;
+    }
+
+    .service-chevrons {
+      position: absolute;
+      right: 0;
+      @include flexcentered;
+    }
+  }
+
+  @media (max-width: 533px) {
+    .service-features {
+      width: 100%;
+    }
+  }
+
+  @include response(md) {
+    width: 100vw;
+    .service-img {
+      width: 80%;
+    }
+
+    .service-features {
+      border: 1px solid red;
+      width: 17rem;
+      height: 8rem;
+      padding-bottom: 3rem;
+    }
+
+    .service-chevrons {
+      position: absolute;
+      bottom: 0;
+      @include flexcentered;
+    }
+
+    .feature {
+      display: flex;
+      gap: 1rem;
+      width: 100%;
+
+      &-description {
+        h1 {
+          font-family: "SF UI Display", sans-serif;
+          $large: 0.75rem;
+          font-size: $large;
+
+          margin-bottom: 0.5rem;
+        }
+
+        h2 {
+          font-family: "SF UI Display", sans-serif;
+          $large: 0.75rem;
+          font-size: $large;
+        }
+      }
+
+      &-logo {
+        width: 30px;
+        height: 38px;
+
+        svg {
+          width: 100%;
+        }
+      }
+    }
+  }
+}

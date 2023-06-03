@@ -1,0 +1,22 @@
+color:
+  - primary: #FD665E
+  - secondary: #000000
+  - third: #585858;
+
+font-family:
+  - primary: New York Extra Large
+  - secondary: SF UI Display
+
+font-weight:
+  - semi-regular: 300
+  - regular: 400
+  - semi-bold: 600
+  - bold: 700
+
+font-size:
+  - small: 12
+  - regular: 14
+  - large: 16
+  - big: 32
+  - enormous: 48
+  - giant: 120
