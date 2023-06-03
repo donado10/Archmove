@@ -1,0 +1,93 @@
+button {
+  border: none;
+  @include link-style;
+  padding: 0.8rem 1.5rem;
+  border-radius: 4px;
+  outline: none;
+  cursor: pointer;
+}
+
+@include response(xl) {
+  $regular: 0.75rem;
+  button {
+    font-size: $regular;
+  }
+}
+
+@include response(lg) {
+  $regular: 0.7rem;
+  button {
+    font-size: $regular;
+    padding: 0;
+    width: 5.6rem;
+    height: 2rem;
+  }
+
+  .hero-btn,
+  .service-btn,
+  .start-btn {
+    button {
+      width: 7rem;
+    }
+  }
+}
+
+.primary-btn {
+  button {
+    background: map-get($map: $color, $key: primary);
+    font-weight: map-get($map: $font-weight, $key: semi-bold);
+    color: white;
+  }
+}
+.secondary-btn {
+  button {
+    background: white;
+  }
+}
+
+.section-title {
+  font-size: map-get($map: $font-size, $key: enormous);
+  font-family: "New York Extra Large";
+  font-weight: map-get($map: $font-weight, $key: bold);
+}
+
+@include response(xxl) {
+  $enormous: 2.3rem;
+  .section-title {
+    font-size: $enormous;
+  }
+}
+
+@include response(lg) {
+  $enormous: 2rem;
+  .section-title {
+    font-size: $enormous;
+  }
+}
+@include response(md) {
+  $enormous: 1.5rem;
+  .section-title {
+    font-size: $enormous;
+  }
+}
+
+.chevrons {
+  display: none;
+  gap: 0.5rem;
+  .chevron-left {
+    width: 2rem;
+    height: 2rem;
+    border-radius: 4px;
+    @include flexcentered;
+    svg {
+      color: #473534;
+    }
+  }
+  .chevron-right {
+    width: 2rem;
+    height: 2rem;
+    border-radius: 4px;
+    @include flexcentered;
+    background: rgba(0, 0, 0, 0.03);
+  }
+}

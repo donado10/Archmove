@@ -1,0 +1,55 @@
+.partners-section {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(3, auto);
+
+  @include section-width();
+
+  .partners-title {
+    grid-row: 1;
+  }
+
+  .partners-logo {
+    grid-row: 2;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  @include response(lg) {
+    gap: 3rem;
+    .partners-title {
+      align-self: center;
+      justify-self: center;
+    }
+
+    .partners-logo {
+      width: 15rem;
+      height: 9rem;
+      align-self: center;
+      justify-self: center;
+      @include flexcentered;
+
+      .logo {
+        position: absolute;
+      }
+
+      .logo.active {
+        display: flex;
+      }
+
+      .logo.next,
+      .logo.hidden {
+        display: none;
+      }
+    }
+
+    .partner-chevrons {
+      display: flex;
+      grid-row: 3;
+      align-self: center;
+      justify-self: center;
+    }
+  }
+}
